@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* La app es de tema claro: los componentes de interior/ usan `dark:`; lo atamos a una clase que nunca se aplica. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-progress: #16a34a;
+  --color-progress-bright: #22c55e;
+  --color-progress-soft: #dcfce7;
+  --color-learn: #2563eb;
+  --color-learn-soft: #dbeafe;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-surface: #ffffff;
+  --color-canvas: #fafafa;
+  --color-line: #e2e8f0;
+  --color-rest: #a78bfa;
+  --color-rest-soft: #ede9fe;
+  --color-warm: #d97706;
+  --color-warm-soft: #fef3c7;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Barra de progreso de interior/ en verde de progreso */
+.bar-progress [role="progressbar"] span {
+  background-color: var(--color-progress) !important;
+}
+.bar-learn [role="progressbar"] span {
+  background-color: var(--color-learn) !important;
+}
+
+input, textarea, select { font: inherit; }
+
+.field {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field:focus {
+  border-color: var(--color-learn);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-learn) 18%, transparent);
+}
+textarea.field { resize: vertical; min-height: 4.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

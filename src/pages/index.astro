@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import App from '../components/App';
+---
+<Layout>
+  <App client:only="react" />
+  <noscript>
+    <p style="padding:2rem;font-family:sans-serif">Esta aplicación necesita JavaScript para funcionar: guarda tu progreso en el almacenamiento local del navegador.</p>
+  </noscript>
+</Layout>
